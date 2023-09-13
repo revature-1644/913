@@ -1,12 +1,15 @@
+package Service;
+
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
+import Exception.NoProductFoundException;
+import Model.Inventory;
 
 public class InventoryService {
     /**
      * Class-scoped object will make my items available to the inventoryService Object
      */
-    List<String> items;
+    List<Inventory> items;
 
     /**
      * A constructor that initialized the List as an ArrayList
@@ -15,14 +18,14 @@ public class InventoryService {
         items = new ArrayList<>();
     }
 //    method overloading - same method name, different method parameters
-    public InventoryService(List<String> premadeItemsList){
+    public InventoryService(List<Inventory> premadeItemsList){
         items = premadeItemsList;
     }
 
     /**
      * @return my list of items
      */
-    public List<String> getAllItems(){
+    public List<Inventory> getAllItems(){
         return items;
     }
 
@@ -30,7 +33,7 @@ public class InventoryService {
      * insert a new item into the list
      * @param newItem
      */
-    public void addItem(String newItem){
+    public void addItem(Inventory newItem){
         items.add(newItem);
     }
 
@@ -40,7 +43,27 @@ public class InventoryService {
      * @return
      */
     public boolean doesItemExist(String name){
-        boolean b = items.contains(name);
-        return b;
+        if(findItemByName(name)==null){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    public Inventory findItemByName(String name){
+        for(Inventory item : items){
+            if(item.getName().equals(name)){
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public String getItem(String name) throws Exception {
+        if(doesItemExist(name)){
+            return name;
+        }else{
+            throw new NoProductFoundException();
+        }
     }
 }
