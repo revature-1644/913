@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import Exception.NoProductFoundException;
 import Model.Inventory;
+import Util.LogUtil;
 
 public class InventoryService {
     /**
@@ -16,6 +17,7 @@ public class InventoryService {
      */
     public InventoryService(){
         items = new ArrayList<>();
+        LogUtil.log.info("Setting up inventory service");
     }
 //    method overloading - same method name, different method parameters
     public InventoryService(List<Inventory> premadeItemsList){
@@ -26,7 +28,9 @@ public class InventoryService {
      * @return my list of items
      */
     public List<Inventory> getAllItems(){
+        LogUtil.log.info("getting all items");
         return items;
+
     }
 
     /**
@@ -35,6 +39,7 @@ public class InventoryService {
      */
     public void addItem(Inventory newItem){
         items.add(newItem);
+        LogUtil.log.info("Adding item");
     }
 
     /**
@@ -43,6 +48,7 @@ public class InventoryService {
      * @return
      */
     public boolean doesItemExist(String name){
+        LogUtil.log.info("Searching if item exists : "+ name);
         if(findItemByName(name)==null){
             return false;
         }else{

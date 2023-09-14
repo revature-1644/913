@@ -3,11 +3,14 @@ import Model.Inventory;
 import Service.CustomerService;
 import Service.InventoryService;
 import Service.ShoppingService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class Application {
+
     public static void main(String[] args) {
         CustomerService customerService = new CustomerService();
         InventoryService inventoryService = new InventoryService();

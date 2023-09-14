@@ -1,10 +1,12 @@
 package Service;
 
 import Model.Customer;
+import Util.LogUtil;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
 
 public class CustomerService {
     List<Customer> customers;
@@ -17,6 +19,7 @@ public class CustomerService {
 //        Integer is a wrapper class, which allows us to convert from primitive to object for use in generic types
 //        Java will automatically convert from wrapper to primitive and reverse (autoboxing/autounboxing)
 //        List<Integer> ints = new ArrayList<>();
+        LogUtil.log.info("Setting up customer service");
     }
 
     /**
