@@ -13,5 +13,4 @@ public class LogUtil {
      * into Java's memory as soon as the program starts up
      */
     public final static Logger log = LoggerFactory.getLogger("Application.class");
-
 }
