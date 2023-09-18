@@ -36,6 +36,8 @@ public class InventoryServiceTest {
      * TDD - writing tests before implementation
      */
     /**
+     * random change 1
+     *
      * Planning / Analysis / Design / Implementation / Testing / Maintenance
      * "Agile" - working in sprints, complete the software development lifecycle in 2 weeks
      */
